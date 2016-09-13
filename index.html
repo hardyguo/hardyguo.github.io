@@ -118,6 +118,45 @@
     <link rel="stylesheet" href="stylesheets/ie.css">
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--termial begin-->
+    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="javascripts/typed.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="stylesheet/font-awesome.css">
+	<script>
+	$(function(){
+
+		$("#typed").typed({
+			strings: ["Typed.js is a jQuery plugin.", "It tyops out", "It types out sentences.", "And then deletes them.", "Try it out!"],
+			typeSpeed: 30,
+      callback: function(){
+        shift();
+      }
+		});
+
+	});
+  function shift(){
+      $(".head-wrap").addClass("shift-text");
+      terminalHeight();
+  }
+
+  function terminalHeight(){
+      var termHeight = $(".terminal-height");
+      var value = termHeight.text();
+      value = parseInt(value);
+      setTimeout(function(){
+          if (value > 10){
+              value = value-1;
+              this.txtValue = value.toString();
+              termHeight.text(this.txtValue);
+              self.terminalHeight();
+          }
+          else{
+              clearTimeout();
+          }
+      }, 10);
+  }
+	</script>
+	<link href="stylesheet/terminal.css" rel="stylesheet" />
   </head>
   <body>
     <!--<a href="https://github.com/hardyguo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>-->

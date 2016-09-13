@@ -27,7 +27,7 @@ p {
   min-height: 450px;
   margin: 0 auto 30px;
   padding: 10px 0;
-  background: url(../img/header-bg.jpg) top center no-repeat fixed;
+  background: url(http://www.mattboldt.com/demos/typed-js/img/header-bg.jpg) top center no-repeat fixed;
   background-size: 100%; }
   @media screen and (max-width: 1500px) {
     .header {

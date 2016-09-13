@@ -12,6 +12,40 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="javascripts/typed.js" type="text/javascript"></script>
     <script>
+	$(function(){
+
+		$("#typed").typed({
+			strings: ["Typed.js is a jQuery plugin.", "It tyops out", "It types out sentences.", "And then deletes them.", "Try it out!"],
+			typeSpeed: 30,
+      callback: function(){
+        shift();
+      }
+		});
+
+	});
+  function shift(){
+      $(".head-wrap").addClass("shift-text");
+      terminalHeight();
+  }
+
+  function terminalHeight(){
+      var termHeight = $(".terminal-height");
+      var value = termHeight.text();
+      value = parseInt(value);
+      setTimeout(function(){
+          if (value > 10){
+              value = value-1;
+              this.txtValue = value.toString();
+              termHeight.text(this.txtValue);
+              self.terminalHeight();
+          }
+          else{
+              clearTimeout();
+          }
+      }, 10);
+  }
+	</script>
+    <script>
     $(function(){
 
         $("#typed").typed({
@@ -127,6 +161,16 @@
       <span id="typed" style="white-space:pre;"></span>
   </div>
 
+	<div class="head-wrap">
+		<h1 class="h1">Typed.js</h1>
+		<div class="text-editor-wrap">
+			<div class="title-bar"><span class="title">typed.js &mdash; bash &mdash; 80x<span class="terminal-height">25</span></span></div>
+			<div class="text-body">
+				$ <span id="typed"></span>
+			</div>
+		</div>
+		<span class="tagline">Type your heart out, with Typed.js</span>
+	</div>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
